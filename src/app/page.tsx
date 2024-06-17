@@ -1,16 +1,32 @@
 
-"use client"
+// "use client"
 
-import { Button } from "@nextui-org/react";
-import Link from "next/link";
+import { auth, signOut } from "@/auth";
+import { Button } from "@nextui-org/button";
 
-export default function Home() {
+const Home = async () => {
+  
+  const  session = await auth();
   return (
-    <div  className="text-3xl p-4">
-      <h1>Hello World</h1>
-      <Button color="secondary" variant="bordered" as={Link} href="/about">
-        Click Me!!
-      </Button>
+    <div  className="p-4">
+      <h1 className="text-3xl">Hello World</h1>
+      <h3 className="text-2xl">User session data:</h3>
+      {session ? (
+        <div className="">
+          <pre>{JSON.stringify(session, null, 2)}</pre>
+          <form action={async () => {
+            "use server"
+            await signOut()
+          }}>
+            <Button  type="submit" color="secondary" variant="bordered">
+       Sign Out
+            </Button>
+          </form>
+        </div>
+      ) : (
+        <div>Not signed in</div>
+      )}
    </div>
   );
 }
+export default Home

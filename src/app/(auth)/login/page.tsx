@@ -1,8 +1,11 @@
+import LoginForm from "./LoginForm"
 
 const LoginPage = () => {
   return (
-    <div>
-      <h1>Login page</h1>
+    <div className="flex flex-col justify-center items-center">
+    {/* <div className="flex flex-col justify-center items-center" style={{height:'calc(100vh-6px)'}}> */}
+
+<LoginForm/>
     </div>
   )
 }

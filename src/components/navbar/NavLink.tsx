@@ -14,7 +14,7 @@ type NavLinkProps= {
 const NavLink = ({ label, href }: NavLinkProps) => {
   const pathName = usePathname()
   return (
-    <NavbarItem isActive={pathName===href} as={Link} href={href} aria-current="page">
+    <NavbarItem isActive={pathName===href} as={Link} href={href} aria-current="page"   className="">
            {label}
         </NavbarItem>
   )

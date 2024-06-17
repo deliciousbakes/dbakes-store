@@ -1,5 +1,5 @@
 
-const MembersPage = () => {
+const ListsPage = () => {
   return (
     <div>
       <h1>Lists pages</h1>
@@ -7,4 +7,4 @@ const MembersPage = () => {
   )
 }
 
-export default MembersPage
+export default ListsPage
