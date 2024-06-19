@@ -29,8 +29,34 @@ model User {
   emailVerified DateTime?
   accounts      Account[]
   password      String
+  image         String
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  Member        Member?
+}
+
+model Member {
+  id          String   @id @default(cuid())
+  name        String?
+  userId      String   @unique
+  gender      String
+  dateOfBirth DateTime
+  description String
+  city        String
+  country     String
+  photos      Photo[]
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Photo {
+  id       String  @id @default(cuid())
+  url      String
+  publicId String?
+  Member   Member? @relation(fields: [memberId], references: [id])
+  memberId String?
 }
 
 model Account {

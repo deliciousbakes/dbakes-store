@@ -37,14 +37,19 @@ const UserMenu = ({ user }: props) => {
           isReadOnly 
           aria-label='username' 
           className='h-14 flex flex-row '>
-         <p  className='font-semibold text-xl'>signed in as: {user?.name}</p> 
+            <p className='font-semibold text-medium'>
+             
+           <div  className='justify-center items-center text-stone-900' >signed in as: {user?.name}</div>
+
+            </p> 
           </DropdownItem>
         </DropdownSection>
         <DropdownItem  as={Link} href="/members/edit">
-   Edit profile
+           <div  className='justify-center items-center text-stone-900' >Edit profile</div>
+
         </DropdownItem>
         <DropdownItem color='danger'   onClick={async () => signOutUser()}   >
-         <div  className='justify-center items-center text-melon' >Log out</div>
+         <div  className='justify-center items-center text-stone-900' >Log out</div>
           
         </DropdownItem> 
       </DropdownMenu>

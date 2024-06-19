@@ -10,7 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+
       backgroundImage: {
+        "dark-gradient":"linear-gradient(to top, rgba(25,100,200,0.8) , transparent)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -20,12 +22,12 @@ const config: Config = {
       "deep":   "#125669",
       "jade":   "#0A5B54",
       "canbery":"#DB5A9A",
-      
+      "gold":"#b8fbbe"
       }
     },
     
   },
-  //  darkMode: "class",
+   darkMode: "class",
   plugins: [nextui()]
 };
 export default config;

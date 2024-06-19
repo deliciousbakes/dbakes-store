@@ -75,11 +75,11 @@ const RegisterForm = () => {
                       />
                       <Input
                           defaultValue=""
-                          label="Phone"
+                          label="Image"
                           variant="bordered"
-                          {...register('phone')}
-                          isInvalid={!!errors.phone}
-                          errorMessage={errors.phone?.message }
+                          {...register('image')}
+                          isInvalid={!!errors.image}
+                          errorMessage={errors.image?.message }
 
                       />
                       <Input

@@ -18,6 +18,7 @@ export const signInUser =async (data:LoginSchema):Promise<ActionResult<string>> 
         const loginResult = await signIn('credentials', {
             email: data.email,
             password: data.password,
+            
             redirect:false
         }) 
         console.log({loginResult})
@@ -58,7 +59,7 @@ export const registerUser = async (data: RegisterSchema):Promise<ActionResult<Us
         return {status: "error", error:validated.error.errors}
     }
 
-    const { name, email, password } = validated.data
+    const { name, email, password,image } = validated.data
     const hashedPassword = await bcrypt.hash(password, 10)
     const existingUser = await prismaDb.user.findUnique({
         where:{email}
@@ -72,6 +73,7 @@ export const registerUser = async (data: RegisterSchema):Promise<ActionResult<Us
         data: {
             name,
             email,
+            image,
             password:hashedPassword
         }
     })
